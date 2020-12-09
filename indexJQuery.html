@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Гладышев Андрей</title>
+    <style>
+        p {
+            color: rgb(119, 0, 255);
+        }
+
+        .selected {
+            color: blue;
+        }
+
+        h3:hover {
+            background: red;
+        }
+
+        .filter {
+            width: 200px;
+            height: 50px;
+            margin: 1px;
+            border: 2px white solid;
+            background-color: rgb(119, 0, 255);
+        }
+
+        .blue {
+            color: blue;
+        }
+
+        .highlight {
+            background: red;
+        }
+
+        .blockWrap {
+            border: 2px solid blue;
+        }
+
+        .git {
+            text-align: center;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+
+
+
+</head>
+</head>
+
+<body>
+
+
+
+    <h2 class="github" style="color: red;">
+        <a href="https://github.com/andrey360-rus/JQuery">https://github.com/andrey360-rus/JQuery</a></h2>
+
+    <h1>Not loaded yet.</h1>
+
+    <br>
+    <br>
+    <br>
+
+    <p>№2 - Применение</p>
+    <p>метода</p>
+    <p>addClass</p>
+
+    <br>
+    <br>
+    <br>
+
+    <h3>№3 Применение метода click</h3>
+
+    <br>
+    <br>
+    <br>
+
+    <h4><span>№4  Применение метода </span>find</h4>
+    <h4>Применение метода<span> find</span>.</h4>
+
+    <br>
+    <br>
+    <br>
+
+    <span class="filter">№5  Применение метода filter</span>
+    <div class="filter"></div>
+    <div class="middle filter"></div>
+    <div class="middle filter"></div>
+    <div class="middle filter"></div>
+    <div class="middle filter"></div>
+    <div class="filter"></div>
+
+    <br>
+    <br>
+    <br>
+
+    <h5 class="blue toggleClass">№6 Применение метода toggleClass - нажать</h5>
+    <h5 class="blue highlight toggleClass">Применение метода toggleClass</h5>
+    <h5 class="blue toggleClass">on Применение метода toggleClass</h5>
+    <h5 class="blue toggleClass">Применение метода toggleClass</h5>
+
+    <br>
+    <br>
+    <br>
+
+    <input class="attr" id="check1" type="checkbox" checked="checked">
+    <label class="attr" for="check1">№7  Применение метода attr</label>
+    <p class="attr"></p>
+
+    <br>
+    <br>
+    <br>
+
+    <input class="prop" id="check2" type="checkbox" checked="checked">
+    <label class="prop" for="check2">№8  Применение метода prop</label>
+    <p class="prop"></p>
+
+    <br>
+    <br>
+    <br>
+
+    <button id="triggerone">№9  Применение метода trigger</button>
+    <button id="triggertwo">№9  Применение метода trigger</button>
+    <div class="trigger"><span class="trigger">0</span> button #1 clicks.</div>
+    <div class="trigger"><span class="trigger">0</span> button #2 clicks.</div>
+
+    <br>
+    <br>
+    <br>
+
+    <button class="hide">№10  Применение метода hide  -- Скрыть</button>
+    <button id="shower">№11  Применение метода show  -- Показать</button>
+    <p class="hide">№10 Применение метода hide</p>
+    <p class="hide">№11 Применение метода show</p>
+
+    <br>
+    <br>
+    <br>
+
+    <p class="wrap">№12 Применение метода wrap</p>
+    <p class="wrap">№12 Применение метода wrap</p>
+    <p class="wrap">№12 Применение метода wrap</p>
+
+    <br>
+    <br>
+    <br>
+
+    <p class="prepend"> Применение метода prepend</p>
+    <p class="prepend"> Применение метода prepend</p>
+
+    <br>
+    <br>
+    <br>
+
+    <p class="append">№14 Применение метода: </p>
+    <p class="append">№14 Применение метода: </p>
+
+    <br>
+    <br>
+    <br>
+
+    <h2 class="html">№15 Применение метода html</h2>
+    <p class="htmlp">
+        <b class="html">Нажмите</b>чтобы изменить<span id="tag">html</span>
+    </p>
+    <p class="htmlp">
+        Эта <button name="nada" class="html">кнопка</button> - необходимо нажать
+    </p>
+
+    <br>
+
+
+    <script>
+        $(function() {
+            $("h1").text("1  Применение метода ready");
+        });
+
+        $("p").last().addClass("selected");
+
+        $("h3").click(function() {
+            $(this).slideUp();
+        });
+
+        $("h4").find("span").css("color", "blue");
+
+        $("div")
+            .css("background", "#7700ff")
+            .filter(".middle")
+            .css("border-color", "blue");
+
+        $("h5").filter(".toggleClass").click(function() {
+            $(this).toggleClass("highlight");
+        });
+
+        $(".attr").change(function() {
+            var $input = $(this);
+            $("p").filter(".attr").html(".attr( 'checked' ): <b>" + $input.attr("checked") + "</b><br>" +
+                ".prop( 'checked' ): <b>" + $input.prop("checked") + "</b><br>" +
+                ".is( ':checked' ): <b>" + $input.is(":checked") + "</b>");
+        })
+
+
+        $(".prop").change(function() {
+            var $input = $(this);
+            $("p").filter(".prop").html(
+                ".attr( \"checked\" ): <b>" + $input.attr("checked") + "</b><br>" +
+                ".prop( \"checked\" ): <b>" + $input.prop("checked") + "</b><br>" +
+                ".is( \":checked\" ): <b>" + $input.is(":checked") + "</b>");
+        }).change();
+
+        $("#triggerone").click(function() {
+            update($("span").filter(".trigger").first());
+        });
+
+        $("#triggertwo").click(function() {
+            $("button").first().trigger("click");
+            update($("span").filter(".trigger").last());
+        });
+
+        function update(j) {
+            var n = parseInt(j.text(), 10);
+            j.text(n + 1);
+        }
+
+        $(".hide").click(function() {
+            $("p").filter(".hide").hide("slow");
+        });
+
+        $("#shower").click(function() {
+            $("p").filter(".hide").show(2000);
+        });
+
+        $(".wrap").wrap("<div class='blockWrap'></div>");
+
+        $(".prepend").prepend("<b>№13 </b>");
+
+        $(".append").append("<strong>append</strong>");
+
+        $(".htmlp").click(function() {
+            var htmlString = $(this).html();
+            $(this).text(htmlString);
+        });
+    </script>
+
+</body>
+
+</html>
